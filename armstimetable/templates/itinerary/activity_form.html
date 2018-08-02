@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Add activity{% endblock %}
+{% block content %}
+    <div class="card-panel teal darken-2 cast">
+     <fieldset class="fieldset">
+         <legend class="legend">ADD ACTIVITY</legend>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="input-field">
+            <input type="text" id="topic" name="{{ form.topic.html_name }}">
+            <label for="topic" class="active">Topic</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="tutor" name="{{ form.tutor.html_name }}">
+            <label for="tutor" class="active">Tutor</label>
+        </div>
+        <div class="input-field">
+            <input type="datetime-local" id="date" class="validate" name="{{ form.date.html_name }}">
+            <label for="date" class="active">Date and time</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="venue" name="{{ form.venue.html_name }}">
+            <label for="venue" class="active">Venue</label>
+        </div>
+        <div class="input-field">
+            <textarea name="{{ form.description.html_name }}" id="textarea" class="materialize-textarea"></textarea>
+            <label for="textarea" class="active">Description</label>
+        </div>
+        <button class="btn teal lighten-1 waves-effect waves-teal waves-light left">Add</button>
+        <a href="{% url 'timetable:docket' %}" class="btn teal lighten-1 waves-effect waves-light waves-teal right">Cancel</a>
+    </form>
+     </fieldset>
+    </div>
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{##}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" value="Add">#}
+{#        <button><a href="{% url 'activity:docket' %}">Cancel</a></button>#}
+{#    </form>#}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Form{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/forms.css' %}">
+</head>
+<body>
+<div>
+    <p class="logo">A.R.M.S</p>
+</div>
+<div class="body">
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset class="fieldset">
+            <legend class="legend">{% block legend %}My info{% endblock %}</legend>
+            {% block form_data %}
+            {% endblock %}
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

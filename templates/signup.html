@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+<div class="card-panel teal darken-2 cast">
+     <fieldset class="fieldset">
+         <legend class="legend">SIGN UP</legend>
+<form action="" method="post">
+        {% csrf_token %}
+        <div class="input-field">
+            <input type="text" id="name" name="{{ user_form.username.html_name }}">
+            <label for="name" class="active">User Name</label>
+        </div>
+        <div class="input-field">
+            <input type="password" id="password" class="validate" name="{{ user_form.password.html_name }}">
+            <label for="password" class="active">Password</label>
+        </div>
+        <div class="input-field">
+            <input type="file" id="image" name="{{ profile_form.username.html_name }}">
+            <label for="image" class="active">Profile picture</label>
+        </div><br><br><br>
+        <button class="btn teal lighten-1 waves-effect waves-teal waves-light left">Sign up</button>
+        <a href="{% url 'home' %}" class="btn teal lighten-1 waves-effect waves-light waves-teal right">Cancel</a>
+</form>
+     </fieldset>
+</div>
+{% endblock %}

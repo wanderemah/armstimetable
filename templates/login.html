@@ -1,0 +1,36 @@
+{% extends 'forms.html' %}
+{% block title %}Log in{% endblock %}
+{% block legend %}Log in{% endblock %}
+{% block form_data %}
+    <span class="span"><label style="font-size: 30px;color: black">Username</label></span>
+
+           <input type="text" name="username" placeholder="Username"><br><br><br>
+
+           <span class="span"><label style="font-size: 30px;color: black">Password</label></span>
+
+           <input type="password" name="password" placeholder="password"><br><br><br>
+
+           <input type="submit" value="Log in" class="submit">
+            <a href="{% url 'home' %}" class="cancel">Cancel</a>
+{#     <div class="card-panel teal darken-2 cast">#}
+{#     <fieldset class="fieldset z-depth-5">#}
+{#         <legend class="legend">LOG IN</legend>#}
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        <div class="input-field">#}
+{#            <input type="text" id="name" name="{{ form.username.html_name }}">#}
+{#            <label for="name" class="active">User Name</label>#}
+{#        </div>#}
+{#        <div class="input-field">#}
+{#            <input type="password" id="password" class="validate" name="{{ form.password.html_name }}">#}
+{#            <label for="password" class="active">Password</label>#}
+{#        </div>#}
+{#        <div class="center-align log">#}
+{#            <button class="btn btn-large teal lighten-1 waves-effect waves-light left">Log in</button>#}
+{#            <a href="{% url 'home' %}" class="btn btn-large teal lighten-1 waves-effect waves-light waves-teal right">Cancel</a>#}
+{#        </div>#}
+{#        <input type="submit" value="Log in">#}
+{#    </form>#}
+{#         </fieldset>#}
+{#     </div>#}
+{% endblock %}

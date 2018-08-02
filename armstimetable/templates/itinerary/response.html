@@ -1,0 +1,29 @@
+{% extends 'forms.html' %}
+{% block title %}Respond{% endblock %}
+{#{% block content %}#}
+{#   #}
+{#    <div class="card-panel teal darken-2 cast">#}
+{#     <fieldset class="fieldset">#}
+{#         <legend class="legend">RESPONSE</legend>#}
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        <div class="input-field">#}
+{#            <input type="text" id="name" name="{{ myform.tutor.html_name }}">#}
+{#            <label for="name" class="active">Tutor</label>#}
+{#        </div>#}
+{#        <div class="input-field">#}
+{#            <textarea name="{{ myform.answer.html_name }}" id="textarea" class="materialize-textarea"></textarea>#}
+{#            <label for="textarea" class="active">Response</label>#}
+{#        </div>#}
+{#        <button class="btn teal lighten-1 waves-effect waves-teal waves-light left">Respond</button>#}
+{#        <a href="{% url 'timetable:docket' %}" class="btn teal lighten-1 waves-effect waves-light waves-teal right">Cancel</a>#}
+{#    </form>#}
+{#     </fieldset>#}
+{#    </div>#}
+{#{% endblock %}#}
+{% block legend %}Response{% endblock %}
+ {% block form_data %}
+        {{ myform.as_p }}
+        <input type="submit" value="Add" class="submit">
+        <a href="{% url 'timetable:docket' %}" class="cancel">Cancel</a>
+{% endblock %}

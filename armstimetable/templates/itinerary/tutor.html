@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Tutor description{% endblock %}
+{% block content %}
+
+    <div class="card blue-grey darken-1 hoverable">
+        <div class="card-content white-text">
+            <span class="card-title center">{{ person.name }}</span>
+            <a href="{% url 'timetable:docket' %}" class="btn-floating waves-effect waves-light teal darken-3 halfway-fab"><i class="material-icons">done</i></a>
+            <p>
+                <em>{{ person.profile }}</em><br><br>
+
+            </p>
+        </div>
+        <div class="card blue-grey lighten-1">
+            <div class="card-content white-text">
+                <div class="container right-align">
+                    <ul class="collectiion with-header">
+                        <li class="collection-header"><h5>Specialties: </h5></li>
+                        {% for spec in person.specialty_set.all %}
+                            <li class="collection-item chip">{{ spec.specialty }}</li><br>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-panel blue-grey darken-1">
+                    <p class="center-align">
+                        {{ person.email }}<br>{{ person.telephone }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

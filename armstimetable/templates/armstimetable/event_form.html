@@ -1,0 +1,13 @@
+{% extends 'forms.html' %}
+{% block title %}Add activity{% endblock %}
+{% block legend %}Add activity{% endblock %}
+{% block form_data %}
+    {% for field in form %}
+        <span>{{ field.errors }}</span>
+        <label class="label">{{ field.label_tag }}</label>
+        <span>{{ field }}</span><br><br><br>
+    {% endfor %}
+    <input type="submit" value="Add" class="submit">
+    <a href="{% url 'timetable:docket' %}" class="cancel">Cancel</a>
+{% endblock %}
+

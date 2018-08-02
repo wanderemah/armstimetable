@@ -1,0 +1,90 @@
+body {
+    background-image: url("/static/images/office-plan-for-developers.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.stack{
+    position: fixed;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+.ble{
+    background-color: rgb(86,172,185);
+}
+.dull{
+    background: radial-gradient(transparent,rgba(0,0,0,0.8));
+}
+.gl{
+    color: rgb(86,172,185);
+}
+.qn{
+    opacity: 0.8;
+}
+.data:hover{
+    background-color: #076357;
+    color: white;
+}
+.slogo{
+    margin-left: 10px;
+    padding: 10px;
+}
+.home{
+    opacity: 0.9;
+}
+.na{
+    margin-left: 10px;
+}
+.ans{
+    padding: 10px;
+}
+.log{
+    padding: 30px;
+}
+.hover:hover{
+    background-color: teal;
+}
+.cast{
+    opacity: 0.8;
+}
+.arms{
+    font-size: 90px;
+    font-family: Harlow Solid Italic;
+}
+.query{
+    font-size: 30px;
+}
+.topic{
+    margin-bottom: -5px;
+}
+.logo{
+    font-family: Comic Sans MS;
+    font-size: 70px;
+    padding-left: 20px;
+}
+.but{
+    margin: 30px;
+}
+.cont{
+    padding-top: 100px;
+}
+.tit{
+    font-family: Candara;
+    font-size: 50px;
+}
+.logout{
+    border-radius: 10%;
+}
+.fieldset{
+    border-style: solid;
+    border-width: 5px;
+    border-color: turquoise;
+    border-bottom-right-radius: 10%;
+    margin: 20px;
+    padding: 40px;
+}
+.legend{
+    color: #01579b;
+    font-size: 26px;
+    font-family: Forte;
+}

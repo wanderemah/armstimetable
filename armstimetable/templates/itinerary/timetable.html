@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Timetable{% endblock %}
+{% block content %}
+<div class="fixed-action-btn">
+        <a href="{% url 'logout' %}" class="btn teal lighten-2 white-text btn-large">Log out</a>
+</div>
+{#<button><a href="{% url 'logout' %}">Log out</a></button>#}
+<br><br><br>
+    <div class="card-panel teal lighten-2 hoverable z-depth-3">
+        <div class="card teal darken-1 hoverable">
+			<div class="card-content white-text">
+				<span class="card-title center tit">A.R.M.S timetable</span>
+				<a href="{% url 'timetable:addactivity'%}" class="btn-floating waves-effect waves-light teal darken-3 halfway-fab"><i class="material-icons">add</i></a>
+				<p>
+                   <table class="centered responsive-table">
+                        <theader>
+                            <th class="center">Done</th>
+                            <th class="center">Date</th>
+                            <th class="center">Activity</th>
+                            <th class="center">Tutor</th>
+                            <th class="center">Venue</th>
+                            <th class="center">Query</th>
+                            <th class="center">Tools</th>
+                        </theader>
+                        {% if events %}
+                            {% for event in events %}
+                                <tr class="hover">
+                                    <td class="center"><input type="checkbox" name="done" value="{{ event.complete }}"></td>
+                                    <td class="center">{{ event.date }}</td>
+                                    <td class="center"><a href="{% url 'timetable:topicdetails' event.topic %}">{{ event.topic }}</a></td>
+                                    <td class="center"><a href="{% url 'timetable:tutordetails' event.tutor %}">{{ event.tutor }}</a></td>
+                                    <td class="center">{{ event.venue }}</td>
+                                    <td class="center"><a href="{% url 'timetable:query' event.tutor %}"><i class="material-icons">add</i></a></td>
+                                    <td class="center"><a href="{% url 'timetable:editactivity' event.pk %}"><i class="material-icons">mode_edit</i></a> <a href="{% url 'timetable:deleteactivity' event.pk %}"><i class="material-icons">thrash</i></a></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr class="hover">
+                                <td colspan="7">No activity scheduled</td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                </p>
+			</div>
+		</div>
+
+        <p class="white-text">
+            <span class="left-align chip"><strong>Queries</strong></span>
+            {% if queries %}
+                {% for query in queries %}
+                    <ul class="collection teal lighten-2">
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle">folder</i>
+                            <div class="chip left blue darken-2">
+                                <span class="title">{{ query.student }}</span>
+                                <p>
+                                     <em>{{ query.topic }}</em><br>
+                                     {{ query.query }}<br>
+                                </p>
+                            </div><br>
+
+                                {% if query.responses_set.all %}
+                                    {% for ans in query.responses_set.all %}
+                                        {% if ans.answer != ' ' %}
+                                            <div class="chip right blue darken-1">
+                                                 <em>{{ ans.tutor }}:  </em> {{ ans.answer }}
+                                            </div><br>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            <a href="{% url 'timetable:repond' %}" class="secondary-content">Respond</a>
+                        </li>
+		            </ul>
+                {% endfor %}
+                {% else %}
+                    <p>No queries</p>
+            {% endif %}
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Timetable{% endblock %}
+{% block content %}
+<div class="fixed-action-btn">
+        <a href="{% url 'logout' %}" class="btn teal lighten-2 white-text btn-large">Log out</a>
+</div>
+{#<button><a href="{% url 'logout' %}">Log out</a></button>#}
+<br><br><br>
+        <div class="card teal darken-1 hoverable">
+			<div class="card-content white-text">
+				<span class="card-title center tit">A.R.M.S timetable</span>
+				<a href="{% url 'timetable:addactivity'%}" class="btn-floating waves-effect waves-light teal darken-3 halfway-fab"><i class="material-icons">add</i></a>
+				<p>
+                   <table class="centered responsive-table">
+                        <theader>
+                            <th class="center black-text">Date</th>
+                            <th class="center black-text">Activity</th>
+                            <th class="center black-text">Tutor</th>
+                            <th class="center black-text">Venue</th>
+                            <th class="center black-text">Query</th>
+                            <th class="center black-text">Tools</th>
+                        </theader>
+                        {% if events %}
+                            {% for event in events %}
+                                <tr class="hover">
+                                    <td class="center data">{{ event.date }}</td>
+                                    <td class="center data"><a href="{% url 'timetable:topicdetails' event.topic %}" class="white-text">{{ event.topic }}</a></td>
+                                    <td class="center data"><a href="{% url 'timetable:tutordetails' event.tutor %}" class="white-text">{{ event.tutor }}</a></td>
+                                    <td class="center data">{{ event.venue }}</td>
+                                    <td class="center data"><a href="{% url 'timetable:query'%}"><i class="material-icons white-text">add</i></a></td>
+                                    <td class="center data"><a href="{% url 'timetable:editactivity' event.pk %}"><i class="material-icons white-text">mode_edit</i></a>    <a href="{% url 'timetable:deleteactivity' event.pk %}"><i class="material-icons white-text">delete</i></a></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr class="hover">
+                                <td colspan="7">No activity scheduled</td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                </p>
+			</div>
+		</div>
+
+        <p class="white-text">
+            <span class="left-align chip white-text teal lighten-3 query"><strong>Queries</strong></span>
+            {% if queries %}
+                {% for qn in queries %}
+                    <div class="card-panel qn">
+                                <div class="title chip ble left white-text">{{ qn.student }}</div> <span class="green-text topic"><strong>{{ qn.topic }}</strong></span>
+                                <p>
+                                    {{ qn.query }}  <a href="{% url 'timetable:repond' %}"><i class="material-icons">reply</i></a>
+                                </p>
+                                {% if qn.responses_set.all %}
+                                    {% for ans in qn.responses_set.all %}
+                                        {% if forloop.counter == 1 %}
+                                                <p class="teal lighten-5 right-align gle">{{ ans.answer }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div><br>
+                        {% endfor %}
+                        {% else %}
+                    <p class="teal-text text-lighten-5">No queries</p>
+                    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}home{% endblock %}
+
+{% block content %}
+    {% load static from staticfiles %}
+    <div class="card-panel teal darken-2 z-depth-5 home">
+        <div class="slider">
+			<ul class="slides">
+				<li>
+					<img src="{% static 'images/8-cold-eskimo-setup.jpg' %}" alt="img">
+					<div class="caption center-align">
+						<h1 class="arms">A.R.M.S</h1>
+						<p class="light text-lighten-3">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aut commodi dolor, doloribus incidunt ipsum quasi quis totam vero.
+                        </p>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'images/AdobeStock_103567079-1024x683.jpeg' %}" alt="img">
+					<div class="caption left-algin">
+						<h1 class="arms">A.R.M.S</h1>
+						<p class="light text-lighten-3">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aut commodi dolor, doloribus incidunt ipsum quasi quis totam vero.
+                        </p>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'images/ecourse6-8.jpg' %}" alt="img">
+					<div class="caption  right-align">
+						<h1 class="arms">A.R.M.S</h1>
+						<p class="light text-lighten-3">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aut commodi dolor, doloribus incidunt ipsum quasi quis totam vero.
+                        </p>
+					</div>
+				</li>
+                <li>
+					<img src="{% static 'images/main-qimg-8d3973fb16f1a53bdd74cbba0a4e4b3d-c.jpg' %}" alt="img">
+					<div class="caption  center-align">
+						<h1 class="arms">A.R.M.S</h1>
+						<p class="light text-lighten-3">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aut commodi dolor, doloribus incidunt ipsum quasi quis totam vero.
+                        </p>
+					</div>
+				</li>
+			</ul>
+		</div>
+        <br>
+        <div class="center-align">
+            <a href="{% url 'login' %}" class="btn btn-large waves-effect lighten-4 waves-teal but">Log in</a>
+            <a href="{% url 'timetable:signup' %}" class="btn btn-large lighten-4 waves-effect waves-teal but">Sign up</a>
+        </div>
+
+    </div>
+{#<button><a href="{% url 'login' %}">Login</a></button><br><br>#}
+{#<button><a href="{% url 'timetable:signup' %}">Sign up</a></button>#}
+{#<button><a href="{% url 'admin:index' %}">Admin</a></button>#}
+{% endblock %}
+</body>
+</html>
